@@ -3,11 +3,16 @@ import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import Home from "./Home";
 import InsertCar from "./InsertCar";
 import EditCar from "./EditCar";
+import DeleteCar from "./DeleteCar";
 export default class Router extends Component {
   render() {
     function EditCarElement() {
       let { id } = useParams();
       return <EditCar id={id} />;
+    }
+    function DeleteCarElement() {
+      let { id } = useParams();
+      return <DeleteCar id={id} />;
     }
     return (
       <BrowserRouter>

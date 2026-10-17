@@ -10,15 +10,11 @@ export default class InsertCar extends Component {
   conductor = React.createRef();
   insertCar = async (event) => {
     event.preventDefault();
-    let url = this.url.current.value;
-    let marca = this.marca.current.value;
-    let modelo = this.modelo.current.value;
-    let conductor = this.conductor.current.value;
     let car = {
-      imagen: url,
-      marca: marca,
-      modelo: modelo,
-      conductor: conductor,
+      imagen: this.url.current.value,
+      marca: this.marca.current.value,
+      modelo: this.modelo.current.value,
+      conductor: this.conductor.current.value,
     };
     console.log(car);
     await this.s.insertCar(car);
