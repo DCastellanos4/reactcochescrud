@@ -10,10 +10,6 @@ export default class Router extends Component {
       let { id } = useParams();
       return <EditCar id={id} />;
     }
-    function DeleteCarElement() {
-      let { id } = useParams();
-      return <DeleteCar id={id} />;
-    }
     return (
       <BrowserRouter>
         <Routes>
