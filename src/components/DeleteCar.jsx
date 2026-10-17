@@ -17,30 +17,43 @@ export default class DeleteCar extends Component {
         <Navigate to="/" />;
       }
       return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 p-4 backdrop-blur-sm">
           <div
             role="dialog"
             aria-modal="true"
             aria-labelledby="delete-car-title"
-            className="w-full max-w-sm rounded-lg bg-white p-6 shadow-lg"
+            className="w-full max-w-md overflow-hidden rounded-3xl border border-white/20 bg-white shadow-2xl"
           >
-            <h2 id="delete-car-title" className="mb-4 text-lg font-semibold">
-              ¿Quieres eliminar este coche?
-            </h2>
-            <p className="mb-6 text-gray-600">Coche: {this.props.id}</p>
-            <div className="flex justify-end gap-2">
-              <button
-                onClick={this.props.unloadModal}
-                className="rounded border border-gray-300 px-4 py-2 hover:bg-gray-100"
-              >
-                No
-              </button>
-              <button
-                onClick={this.deleteCar}
-                className="rounded bg-red-600 px-4 py-2 text-white hover:bg-red-700"
-              >
-                Sí
-              </button>
+            <div className="bg-slate-950 px-6 py-5 text-white">
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-orange-400">
+                Confirmación
+              </p>
+              <h2 id="delete-car-title" className="mt-2 text-2xl font-bold">
+                ¿Eliminar este coche?
+              </h2>
+            </div>
+            <div className="p-6">
+              <p className="text-slate-600">
+                Se eliminará el vehículo{" "}
+                <span className="font-bold text-slate-900">
+                  #{this.props.id}
+                </span>{" "}
+                de tu garaje. Esta acción no se puede deshacer.
+              </p>
+              <div className="mt-7 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
+                <button
+                  onClick={this.props.unloadModal}
+                  className="rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                >
+                  Cancelar
+                </button>
+                <button
+                  onClick={this.deleteCar}
+                  className="rounded-xl bg-red-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-200"
+                >
+                  Sí, eliminar
+                </button>
+              </div>
             </div>
           </div>
         </div>
